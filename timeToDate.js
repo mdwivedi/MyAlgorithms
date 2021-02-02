@@ -143,9 +143,9 @@ var actualDates = [//Corresponding actual dates
 '2028 : 12 : 31 : 23 : 0 :0',
 ]
 
-for(let i = 0; i<testTimes.length;i++ ){
-  timeToDate(testTimes[i],actualDates[i]);
-}
+  for(let i = 0; i<testTimes.length;i++ ){
+    timeToDate(testTimes[i],actualDates[i]);
+  }
 }
 function timeToDate(timeInMilis,actualDate) {
  let dateofconsideration = actualDate;
@@ -189,6 +189,11 @@ function timeToDate(timeInMilis,actualDate) {
  }
 
  finalYear = baseYear + fourYearsGroupsPassed*4 + remainingFullYears + 1;
+ 
+ if ((parseInt(finalYear % 4) === 0) && (parseInt(finalYear % 100) === 0)) {
+    isLeapYear = false;
+ } 
+  
  if (dayOfYear == 0) {
    finalDate = 31;
    finalMonth = 12;
